@@ -78,7 +78,7 @@ ENV['EMBED_CARES'] = 'true'
 ENV['ARCH_FLAGS'] = RbConfig::CONFIG['ARCH_FLAG']
 if apple_toolchain && !cross_compiling
   if RUBY_PLATFORM =~ /arm(v[67]s?|64)/
-    ENV['ARCH_FLAGS'] = '-arch ' + RUBY_PLATFORM
+    ENV['ARCH_FLAGS'] = '-arch ' + RUBY_PLATFORM.split('-').first
   else
     ENV['ARCH_FLAGS'] = '-arch i386 -arch x86_64'
   end
